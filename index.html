@@ -1,0 +1,1172 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kusum Baheti | Mutual Fund & SIP Distributor</title>
+    <!-- Google Fonts: Outfit (Display) & Inter (Body) & JetBrains Mono (Fintech Stats) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- AOS Scroll Reveal CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              display: ['Outfit', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              emerald: {
+                50: '#ecfdf5',
+                100: '#d1fae5',
+                200: '#a7f3d0',
+                300: '#6ee7b7',
+                400: '#34d399',
+                500: '#10b981',
+                600: '#059669',
+                700: '#047857',
+                800: '#065f46',
+                900: '#064e3b',
+                950: '#022c22',
+              },
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Glowing green radial highlight effect */
+      .radial-glow {
+        background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.15) 0%, rgba(5, 5, 5, 0) 70%);
+      }
+      .radial-glow-header {
+        background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.12) 0%, rgba(5, 5, 5, 0) 50%);
+      }
+      .radial-glow-footer {
+        background: radial-gradient(circle at 50% 100%, rgba(16, 185, 129, 0.15) 0%, rgba(5, 5, 5, 0) 60%);
+      }
+      /* Custom scrollbar matching terminal vibe */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #050505;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1f2937;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #10b981;
+      }
+      /* Smooth custom slider styling */
+      input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        background: transparent;
+        cursor: pointer;
+      }
+      input[type="range"]::-webkit-slider-runnable-track {
+        background: #1e293b;
+        height: 6px;
+        border-radius: 3px;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        margin-top: -5px; /* Centers the thumb on the track */
+        background-color: #10b981;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+        transition: transform 0.1s ease, background-color 0.1s ease;
+      }
+      input[type="range"]::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+        background-color: #34d399;
+      }
+    </style>
+  </head>
+  <body class="bg-[#050505] text-[#f3f4f6] font-sans overflow-x-hidden antialiased">
+    
+    <!-- Slim fixed progress bar at the very top of the page indicating scroll depth -->
+    <div id="scroll-progress" class="fixed top-0 left-0 w-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-500 z-[100] transition-all duration-75 shadow-[0_0_8px_#10b981]"></div>
+
+    <!-- Subtle Trading Terminal Grid Overlay -->
+    <div class="fixed inset-0 pointer-events-none z-0 opacity-[0.06] bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:16px_24px]"></div>
+    
+    <!-- Absolute Backdrop Highlights -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] pointer-events-none radial-glow-header z-0"></div>
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] pointer-events-none radial-glow-footer z-0"></div>
+
+    <!-- 1. Floating Header -->
+    <header class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl z-50 transition-all duration-300">
+      <div class="backdrop-blur-xl bg-black/50 border border-white/10 rounded-full py-3 px-6 md:px-8 flex items-center justify-between shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]">
+        
+        <!-- Logo / Name -->
+        <a href="#home" class="flex items-center gap-2.5 group">
+          <div class="relative flex items-center justify-center">
+            <span class="absolute inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+            <span class="relative h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+          </div>
+          <span class="font-display font-bold text-lg md:text-xl tracking-tight text-white group-hover:text-emerald-400 transition-colors duration-300">
+            Kusum Baheti
+          </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#about" class="text-sm font-medium text-gray-400 hover:text-emerald-400 transition-colors duration-300">About</a>
+          <a href="#calculator" class="text-sm font-medium text-gray-400 hover:text-emerald-400 transition-colors duration-300">SIP Calculator</a>
+          <a href="#expertise" class="text-sm font-medium text-gray-400 hover:text-emerald-400 transition-colors duration-300">Expertise</a>
+          <a href="#contact" class="text-sm font-medium text-gray-400 hover:text-emerald-400 transition-colors duration-300">Connect</a>
+        </nav>
+
+        <!-- Start a SIP Pill Button -->
+        <div class="flex items-center gap-4">
+          <a href="#calculator" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-white text-black font-semibold text-xs tracking-wide uppercase hover:bg-emerald-400 hover:text-black transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.1)] hover:shadow-[0_4px_20px_rgba(16,185,129,0.3)]">
+            Start a SIP
+          </a>
+          
+          <!-- Mobile Menu Trigger -->
+          <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white transition-all duration-300 focus:outline-none hover:bg-white/5 active:scale-90 rounded-lg" aria-label="Toggle menu">
+            <svg id="menu-svg" class="h-6 w-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="hamburger-icon" class="transition-all duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              <path id="close-icon" class="hidden transition-all duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="md:hidden absolute top-16 left-0 right-0 p-4 bg-black/90 border border-white/10 rounded-2xl mt-2 flex flex-col gap-3.5 shadow-2xl backdrop-blur-xl transition-all duration-300 transform opacity-0 scale-95 -translate-y-2 pointer-events-none max-h-[75vh] overflow-y-auto scrollbar-thin z-50">
+        <a href="#about" class="mobile-nav-link block py-3 px-4 text-gray-300 hover:bg-emerald-950/30 hover:text-emerald-400 rounded-xl transition-all duration-200">About</a>
+        <a href="#calculator" class="mobile-nav-link block py-3 px-4 text-gray-300 hover:bg-emerald-950/30 hover:text-emerald-400 rounded-xl transition-all duration-200">SIP Calculator</a>
+        <a href="#expertise" class="mobile-nav-link block py-3 px-4 text-gray-300 hover:bg-emerald-950/30 hover:text-emerald-400 rounded-xl transition-all duration-200">Expertise</a>
+        <a href="#contact" class="mobile-nav-link block py-3 px-4 text-gray-300 hover:bg-emerald-950/30 hover:text-emerald-400 rounded-xl transition-all duration-200">Connect</a>
+        <a href="#calculator" class="mobile-nav-link flex justify-center py-3.5 px-4 bg-emerald-500 hover:bg-emerald-600 text-black font-bold rounded-xl transition-all duration-200">
+          Start a SIP
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="relative z-10 overflow-x-hidden">
+
+      <!-- 2. Hero Section -->
+      <section id="home" class="min-h-screen flex flex-col justify-center items-center px-4 relative pt-24 pb-16 overflow-hidden">
+        <!-- Center glowing ambient light source -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] md:w-[600px] h-[350px] md:h-[600px] pointer-events-none radial-glow z-0"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center">
+          
+          <!-- Verified Badge -->
+          <div data-aos="fade-down" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-8">
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span class="text-[10px] md:text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400">
+              AMFI-Registered Mutual Fund Distributor
+            </span>
+          </div>
+
+          <!-- Small Elegant Greeting -->
+          <p data-aos="fade-up" data-aos-delay="100" class="font-display text-sm md:text-base font-semibold tracking-wider text-emerald-400 uppercase mb-4">
+            Hi, I am your friendly
+          </p>
+
+          <!-- Massive Display Heading -->
+          <h1 data-aos="fade-up" data-aos-delay="200" class="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white leading-none mb-6">
+            Mutual Fund &<br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500">
+              SIP Distributor
+            </span>
+          </h1>
+
+          <!-- Crisp supporting subtitle -->
+          <p data-aos="fade-up" data-aos-delay="300" class="text-gray-400 text-base md:text-xl max-w-2xl mx-auto leading-relaxed mb-12 font-light">
+            Empowering families and professionals to compound wealth systematically. Deconstructing prospectuses, managing risks, and tailoring long-term investment pathways.
+          </p>
+
+          <!-- Hero Action CTAs -->
+          <div data-aos="fade-up" data-aos-delay="400" class="flex flex-col sm:flex-row gap-4 mb-20 w-full max-w-sm sm:max-w-none justify-center">
+            <a href="#contact" class="px-8 py-4 rounded-full bg-emerald-500 text-black font-bold text-sm tracking-wide uppercase hover:bg-emerald-400 transition-all duration-300 shadow-[0_10px_30px_rgba(16,185,129,0.3)] hover:shadow-[0_10px_30px_rgba(16,185,129,0.5)]">
+              Get Started
+            </a>
+            <a href="#calculator" class="px-8 py-4 rounded-full bg-neutral-900 text-white font-bold text-sm tracking-wide uppercase border border-white/10 hover:border-emerald-500/30 hover:bg-black transition-all duration-300">
+              Calculate SIP Growth
+            </a>
+          </div>
+
+          <!-- 4 Minimalist Stats Grid -->
+          <div data-aos="fade-up" data-aos-delay="500" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-4xl mt-4">
+            
+            <!-- ARN Stat Card -->
+            <div class="relative group bg-neutral-950/60 border border-white/5 hover:border-emerald-500/20 rounded-2xl p-5 text-left transition-all duration-300 hover:shadow-[0_10px_30px_rgba(0,0,0,0.8)] overflow-hidden">
+              <!-- Corner highlight -->
+              <div class="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-tr-2xl"></div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-mono text-xs text-emerald-400 font-bold">01</span>
+                <!-- Interactive Copy Indicator -->
+                <button onclick="copyARN()" class="p-1.5 rounded-md hover:bg-white/5 text-gray-500 hover:text-emerald-400 transition-all" title="Copy ARN Registry Number" id="copy-btn">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6a2 2 0 002-2V7a2 2 0 00-2-2h-6a2 2 0 00-2 2z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h6a2 2 0 002-2v-3" />
+                  </svg>
+                </button>
+              </div>
+              <p class="text-xs text-gray-500 font-medium mb-1 font-mono uppercase tracking-wider">AMFI Registration</p>
+              <h3 class="font-display font-bold text-lg text-white font-mono tracking-tight group-hover:text-emerald-400 transition-colors" id="arn-value">
+                ARN-362700
+              </h3>
+              <!-- Toast Alert notification inline -->
+              <span id="copy-toast" class="absolute bottom-2 right-4 text-[10px] text-emerald-400 font-mono opacity-0 transition-opacity duration-300">Copied!</span>
+            </div>
+
+            <!-- NISM Stat Card -->
+            <div class="relative group bg-neutral-950/60 border border-white/5 hover:border-emerald-500/20 rounded-2xl p-5 text-left transition-all duration-300 hover:shadow-[0_10px_30px_rgba(0,0,0,0.8)] overflow-hidden">
+              <div class="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-tr-2xl"></div>
+              <div class="mb-3">
+                <span class="font-mono text-xs text-emerald-400 font-bold">02</span>
+              </div>
+              <p class="text-xs text-gray-500 font-medium mb-1 font-mono uppercase tracking-wider">National Institute of Securities Markets</p>
+              <h3 class="font-display font-bold text-lg text-white tracking-tight group-hover:text-emerald-400 transition-colors">
+                NISM-XV Certified
+              </h3>
+            </div>
+
+            <!-- Capital Market Stat Card -->
+            <div class="relative group bg-neutral-950/60 border border-white/5 hover:border-emerald-500/20 rounded-2xl p-5 text-left transition-all duration-300 hover:shadow-[0_10px_30px_rgba(0,0,0,0.8)] overflow-hidden">
+              <div class="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-tr-2xl"></div>
+              <div class="mb-3">
+                <span class="font-mono text-xs text-emerald-400 font-bold">03</span>
+              </div>
+              <p class="text-xs text-gray-500 font-medium mb-1 font-mono uppercase tracking-wider">Focus Area</p>
+              <h3 class="font-display font-bold text-lg text-white tracking-tight group-hover:text-emerald-400 transition-colors">
+                Capital Market Enthusiast
+              </h3>
+            </div>
+
+            <!-- DRHP Risk Analyser Card -->
+            <div class="relative group bg-neutral-950/60 border border-white/5 hover:border-emerald-500/20 rounded-2xl p-5 text-left transition-all duration-300 hover:shadow-[0_10px_30px_rgba(0,0,0,0.8)] overflow-hidden">
+              <div class="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-tr-2xl"></div>
+              <div class="mb-3">
+                <span class="font-mono text-xs text-emerald-400 font-bold">04</span>
+              </div>
+              <p class="text-xs text-gray-500 font-medium mb-1 font-mono uppercase tracking-wider">Strategic Edge</p>
+              <h3 class="font-display font-bold text-lg text-white tracking-tight group-hover:text-emerald-400 transition-colors">
+                DRHP Risk Analyser
+              </h3>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Sleek Ticking Ticker Decorator -->
+        <div class="absolute bottom-4 left-0 right-0 w-full border-y border-white/[0.05] py-2 bg-black/40 overflow-hidden hidden md:block">
+          <div class="flex whitespace-nowrap animate-[marquee_25s_linear_infinite] gap-12 text-[11px] font-mono tracking-widest text-emerald-400/40 uppercase">
+            <span>• NIFTY SIP • 15% CAGR HISTORIC AVERAGES • COMPOUNDING IS THE EIGHTH WONDER • SYSTEMATIC INVESTMENT BLUEPRINTS • TIME IN THE MARKET > TIMING THE MARKET • RUPEE COST AVERAGING</span>
+            <span>• NIFTY SIP • 15% CAGR HISTORIC AVERAGES • COMPOUNDING IS THE EIGHTH WONDER • SYSTEMATIC INVESTMENT BLUEPRINTS • TIME IN THE MARKET > TIMING THE MARKET • RUPEE COST AVERAGING</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Marquee Keyframes Inline style -->
+      <style>
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+      </style>
+
+      <!-- 3. About Section -->
+      <section id="about" class="py-24 px-4 max-w-6xl mx-auto scroll-mt-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          
+          <!-- Left side: Large Heading & Aesthetic Anchor -->
+          <div class="lg:col-span-5 flex flex-col justify-start" data-aos="fade-right">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="h-[1px] w-8 bg-emerald-500"></span>
+              <span class="font-mono text-xs uppercase tracking-wider text-emerald-400 font-bold">The Philosophy</span>
+            </div>
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight mb-6">
+              Learning the unlearning.<br />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">
+                Shaping portfolios
+              </span><br />
+              that build real wealth.
+            </h2>
+            <div class="mt-4 p-4 border-l-2 border-emerald-500/40 bg-emerald-500/[0.01] rounded-r-xl">
+              <p class="font-mono text-xs text-gray-500 leading-relaxed">
+                "We don't look for quick shortcuts. Systematic growth is backed by mathematical predictability and extreme discipline."
+              </p>
+            </div>
+          </div>
+
+          <!-- Right side: Body Text & Key Principles -->
+          <div class="lg:col-span-7 flex flex-col justify-center" data-aos="fade-left" data-aos-delay="200">
+            <p class="text-gray-300 text-lg leading-relaxed mb-6 font-light">
+              Don’t just save money; be smart enough to invest in the stock market through SIPs and build yourself a significant corpus. I am focused on building clean, intuitive investment strategies that solve real-world financial goals.
+            </p>
+            <p class="text-gray-400 text-base leading-relaxed mb-8 font-light">
+              By filtering capital market trends and translating complex market data, I help clients cut through the noise of financial speculation. Together, we focus on the fundamental engine of growth: patience, regular investing, and calculated asset allocation.
+            </p>
+
+            <!-- Key Pillars List -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-white/5">
+              
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-display font-semibold text-white mb-1">Discipline-First Allocation</h4>
+                  <p class="text-xs text-gray-400">Automating regular investing triggers to bypass human psychological bias.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-display font-semibold text-white mb-1">DRHP Risk Analysis</h4>
+                  <p class="text-xs text-gray-400">Filtering governance structures, cash runways, and valuations of new offerings.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-display font-semibold text-white mb-1">Uncompromising Integrity</h4>
+                  <p class="text-xs text-gray-400">100% transparent AMFI-compliant process to protect client interests.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-display font-semibold text-white mb-1">Goal-Aligned Structuring</h4>
+                  <p class="text-xs text-gray-400">Corpus engineering optimized specifically for kids' education, retirement, or milestones.</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. SIP Wealth Estimator Widget (Highly Interactive centerpiece) -->
+      <section id="calculator" class="py-24 px-4 bg-neutral-950/40 border-y border-white/[0.05] relative scroll-mt-20">
+        <!-- Floating light highlight behind calculator -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(16,185,129,0.05)_0%,transparent_60%)] pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+          
+          <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-4">
+              <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-emerald-400">Wealth Engine</span>
+            </div>
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+              Interactive SIP Estimator
+            </h2>
+            <p class="text-gray-400 text-sm md:text-base font-light">
+              Configure your Systematic Investment Plan variables to visualize compounding and estimate your future corpus.
+            </p>
+          </div>
+
+          <!-- Calculator Container Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch" data-aos="zoom-in-up">
+            
+            <!-- Left inputs (6 cols) -->
+            <div class="lg:col-span-7 bg-[#0b0b0b] border border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden">
+              <div class="absolute top-0 left-0 w-1.5 h-full bg-emerald-500"></div>
+
+              <div>
+                <div class="flex items-center justify-between mb-8 border-b border-white/5 pb-4">
+                  <h3 class="font-display font-semibold text-lg text-white">Investment Settings</h3>
+                  <span class="text-xs font-mono text-gray-500 font-medium">REAL-TIME MATHS</span>
+                </div>
+
+                <!-- Input Item: Monthly SIP -->
+                <div class="mb-8">
+                  <div class="flex items-center justify-between mb-3">
+                    <label for="monthly-sip" class="text-sm font-medium text-gray-300">Monthly SIP Amount</label>
+                    <div class="flex items-center gap-1.5 font-mono text-sm text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-lg">
+                      <span>₹</span><span id="sip-value-badge">10,000</span>
+                    </div>
+                  </div>
+                  <input type="range" id="monthly-sip" min="1000" max="100000" step="500" value="10000" class="w-full h-2 rounded-lg cursor-pointer" />
+                  <div class="flex justify-between text-[10px] font-mono text-gray-500 mt-2">
+                    <span>₹1K</span>
+                    <span>₹25K</span>
+                    <span>₹50K</span>
+                    <span>₹75K</span>
+                    <span>₹100K</span>
+                  </div>
+                </div>
+
+                <!-- Input Item: Rate of Return -->
+                <div class="mb-8">
+                  <div class="flex items-center justify-between mb-3">
+                    <label for="return-rate" class="text-sm font-medium text-gray-300">Expected Annual Return</label>
+                    <div class="flex items-center gap-1 font-mono text-sm text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-lg">
+                      <span id="rate-value-badge">12</span><span>%</span>
+                    </div>
+                  </div>
+                  <input type="range" id="return-rate" min="8" max="25" step="0.5" value="12" class="w-full h-2 rounded-lg cursor-pointer" />
+                  <div class="flex justify-between text-[10px] font-mono text-gray-500 mt-2">
+                    <span>8% (Conservative)</span>
+                    <span>15% (Historic Avg)</span>
+                    <span>25% (Agressive)</span>
+                  </div>
+                </div>
+
+                <!-- Input Item: Time Horizon -->
+                <div class="mb-6">
+                  <div class="flex items-center justify-between mb-3">
+                    <label for="time-period" class="text-sm font-medium text-gray-300">Investment Horizon</label>
+                    <div class="flex items-center gap-1 font-mono text-sm text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-lg">
+                      <span id="period-value-badge">15</span><span>Y</span>
+                    </div>
+                  </div>
+                  <input type="range" id="time-period" min="1" max="40" step="1" value="15" class="w-full h-2 rounded-lg cursor-pointer" />
+                  <div class="flex justify-between text-[10px] font-mono text-gray-500 mt-2">
+                    <span>1 Year</span>
+                    <span>10 Years</span>
+                    <span>20 Years</span>
+                    <span>30 Years</span>
+                    <span>40 Years</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quick Presets -->
+              <div class="pt-6 border-t border-white/5 flex flex-wrap gap-2 items-center">
+                <span class="text-xs font-mono text-gray-500 mr-2">Quick Horizon Presets:</span>
+                <button onclick="setHorizonPreset(10)" class="px-3 py-1 text-xs font-mono border border-white/10 rounded-full hover:border-emerald-500/40 text-gray-400 hover:text-white transition-all bg-neutral-900/30">10Y (Mid Goal)</button>
+                <button onclick="setHorizonPreset(20)" class="px-3 py-1 text-xs font-mono border border-white/10 rounded-full hover:border-emerald-500/40 text-gray-400 hover:text-white transition-all bg-neutral-900/30">20Y (Retirement)</button>
+                <button onclick="setHorizonPreset(30)" class="px-3 py-1 text-xs font-mono border border-white/10 rounded-full hover:border-emerald-500/40 text-gray-400 hover:text-white transition-all bg-neutral-900/30">30Y (Dynasty Fund)</button>
+              </div>
+
+            </div>
+
+            <!-- Right summary & visualizations (5 cols) -->
+            <div class="lg:col-span-5 bg-gradient-to-b from-[#0b0b0b] to-[#040d0a] border border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden">
+              
+              <!-- Subtle dynamic light dot indicator -->
+              <div class="absolute top-4 right-4 flex items-center gap-1.5 font-mono text-[9px] text-emerald-400 tracking-wider">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                LIVE PLOT
+              </div>
+
+              <div>
+                <h3 class="font-display font-semibold text-lg text-white mb-6">Estimated Breakdown</h3>
+                
+                <!-- Visual Ring/Graph made inside pure CSS/HTML -->
+                <div class="relative w-full h-40 flex items-center justify-center mb-8">
+                  <!-- SVG Stacked Circular Path -->
+                  <svg class="w-36 h-36 transform -rotate-90">
+                    <!-- Background circle representing total invested -->
+                    <circle cx="72" cy="72" r="60" stroke="#1e293b" stroke-width="12" fill="transparent" />
+                    <!-- Foreground circle representing future value ratio -->
+                    <circle id="gauge-circle" cx="72" cy="72" r="60" stroke="#10b981" stroke-width="12" fill="transparent" stroke-dasharray="377" stroke-dashoffset="120" stroke-linecap="round" class="transition-all duration-300" />
+                  </svg>
+                  <div class="absolute flex flex-col items-center justify-center text-center">
+                    <span class="text-[10px] font-mono text-gray-500 uppercase tracking-widest">Multiplier</span>
+                    <span id="multiplier-badge" class="font-display font-extrabold text-2xl text-emerald-400">2.5x</span>
+                  </div>
+                </div>
+
+                <!-- Numerical Results -->
+                <div class="space-y-4 font-mono">
+                  
+                  <div class="flex items-center justify-between border-b border-white/5 pb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="h-2 w-2 rounded-full bg-slate-600"></span>
+                      <span class="text-xs text-gray-400 font-sans">Invested Capital</span>
+                    </div>
+                    <span id="sum-invested" class="text-sm font-semibold text-gray-300">₹18,00,000</span>
+                  </div>
+
+                  <div class="flex items-center justify-between border-b border-white/5 pb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                      <span class="text-xs text-gray-400 font-sans">Estimated Returns</span>
+                    </div>
+                    <span id="sum-gains" class="text-sm font-bold text-emerald-400">+₹32,45,210</span>
+                  </div>
+
+                  <div class="flex items-center justify-between pt-2">
+                    <div class="flex items-center gap-2">
+                      <span class="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]"></span>
+                      <span class="text-sm text-white font-sans font-medium">Total Wealth</span>
+                    </div>
+                    <span id="sum-total" class="text-base font-extrabold text-white">₹50,45,210</span>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- CTA linking straight into Connect with data -->
+              <div class="pt-6 mt-6 border-t border-white/5">
+                <button onclick="lockAndConnect()" class="w-full py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs tracking-wider uppercase transition-all duration-300 shadow-[0_4px_15px_rgba(16,185,129,0.2)] hover:shadow-[0_4px_20px_rgba(16,185,129,0.4)] flex items-center justify-center gap-2">
+                  <span>Initiate this SIP Plan</span>
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 5. Expertise & Skills Grid (Bento style cards) -->
+      <section id="expertise" class="py-24 px-4 max-w-6xl mx-auto scroll-mt-20">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-4">
+            <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-emerald-400">Core Services</span>
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+            Areas of Professional Mastery
+          </h2>
+          <p class="text-gray-400 text-sm md:text-base font-light">
+            Bringing rigorous analytical discipline and strategic clarity to your personal capital allocation.
+          </p>
+        </div>
+
+        <!-- Cards Bento Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          
+          <!-- Card 1: Equity Research -->
+          <div class="group bg-neutral-950/60 border border-white/5 hover:border-emerald-500/30 rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.015] hover:shadow-[0_20px_40px_rgba(16,185,129,0.12)] relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-emerald-500/5 to-transparent rounded-tr-3xl"></div>
+            
+            <div class="flex items-center justify-center w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+
+            <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-emerald-400 transition-colors">
+              Equity Research
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed font-light mb-4">
+              Dissecting macroeconomic indicators, corporate valuation ratios, cash flow health, and industry tailwinds. Ensuring equity investments are backed by fundamental strength rather than reactive hype.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5 font-mono text-[10px] text-gray-500">
+              <span class="px-2 py-1 bg-white/5 rounded">FUNDAMENTAL VALUATIONS</span>
+              <span class="px-2 py-1 bg-white/5 rounded">MACRO SECTORS</span>
+              <span class="px-2 py-1 bg-white/5 rounded">P/E SCANS</span>
+            </div>
+          </div>
+
+          <!-- Card 2: DRHP Analysis -->
+          <div class="group bg-neutral-950/60 border border-white/5 hover:border-emerald-500/30 rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.015] hover:shadow-[0_20px_40px_rgba(16,185,129,0.12)] relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-emerald-500/5 to-transparent rounded-tr-3xl"></div>
+            
+            <div class="flex items-center justify-center w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+
+            <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-emerald-400 transition-colors">
+              DRHP Analysis
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed font-light mb-4">
+              Scrutinizing Draft Red Herring Prospectuses of IPOs. Analyzing key promoter risk parameters, capital allocation plans, regulatory compliance track records, and operational vulnerabilities before corporate listing.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5 font-mono text-[10px] text-gray-500">
+              <span class="px-2 py-1 bg-white/5 rounded">IPO DECONSTRUCTION</span>
+              <span class="px-2 py-1 bg-white/5 rounded">RISK ARBITRAGE</span>
+              <span class="px-2 py-1 bg-white/5 rounded">PROMOTER AUDIT</span>
+            </div>
+          </div>
+
+          <!-- Card 3: SIP & Wealth Creation -->
+          <div class="group bg-neutral-950/60 border border-white/5 hover:border-emerald-500/30 rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.015] hover:shadow-[0_20px_40px_rgba(16,185,129,0.12)] relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-emerald-500/5 to-transparent rounded-tr-3xl"></div>
+            
+            <div class="flex items-center justify-center w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+
+            <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-emerald-400 transition-colors">
+              SIP & Wealth Creation
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed font-light mb-4">
+              Designing optimized rupee cost averaging pipelines based on dynamic age parameters and future liquidity milestones. Harnessing compound interest frameworks for systemic multigenerational portfolio creation.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5 font-mono text-[10px] text-gray-500">
+              <span class="px-2 py-1 bg-white/5 rounded">RUPEE COST AVERAGING</span>
+              <span class="px-2 py-1 bg-white/5 rounded">HORIZON PLAN</span>
+              <span class="px-2 py-1 bg-white/5 rounded">COMPOUND MATRIX</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Gym Freak & Extreme Discipline -->
+          <div class="group bg-neutral-950/60 border border-white/5 hover:border-emerald-500/30 rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.015] hover:shadow-[0_20px_40px_rgba(16,185,129,0.12)] relative overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-emerald-500/5 to-transparent rounded-tr-3xl"></div>
+            
+            <div class="flex items-center justify-center w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+
+            <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-emerald-400 transition-colors">
+              Extreme Discipline
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed font-light mb-4">
+              Showing up every single day at the gym builds resilience and focus. This continuous, unwavering personal discipline directly drives analytical rigor and long-term grit required to stay calm during market volatility.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5 font-mono text-[10px] text-gray-500">
+              <span class="px-2 py-1 bg-white/5 rounded">CONSISTENCY PATTERNS</span>
+              <span class="px-2 py-1 bg-white/5 rounded">MARKET GRIT</span>
+              <span class="px-2 py-1 bg-white/5 rounded">FOCUS CYCLE</span>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- 6. Rule of 72 Cheat Sheet / Visual compounding segment -->
+      <section class="py-24 px-4 bg-neutral-950/60 border-t border-white/[0.05] relative overflow-hidden">
+        <div class="max-w-4xl mx-auto relative z-10 text-center flex flex-col items-center">
+          
+          <div class="mb-10 text-emerald-500/20">
+            <!-- Massive Quote Marker -->
+            <span class="font-display font-black text-8xl line-height-0 select-none">“</span>
+          </div>
+
+          <p class="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-normal max-w-3xl mb-8" data-aos="fade-up">
+            Compound interest is the eighth wonder of the world. <br />
+            He who <span class="text-emerald-400">understands</span> it, earns it... <br />
+            he who doesn't, <span class="text-red-400">pays</span> it.
+          </p>
+
+          <p class="text-xs font-mono uppercase tracking-widest text-gray-500 mb-12">
+            — Albert Einstein
+          </p>
+
+          <!-- Interactive Rule of 72 Visual Matrix -->
+          <div class="w-full max-w-3xl bg-neutral-950 border border-white/10 rounded-2xl p-6 sm:p-8 text-left" data-aos="zoom-in-up">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-white/5 pb-4 mb-6">
+              <div>
+                <h4 class="font-display font-bold text-white text-base">The Investor's Formula: The Rule of 72</h4>
+                <p class="text-xs text-gray-500 font-light mt-0.5">Approximate years required to double your money at various rates</p>
+              </div>
+              <div class="mt-2 sm:mt-0 px-2.5 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono text-[10px] rounded font-bold">
+                72 ÷ INTEREST RATE = YEARS TO DOUBLE
+              </div>
+            </div>
+
+            <!-- Rule of 72 Rows -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
+              
+              <div class="p-4 bg-neutral-900/40 rounded-xl border border-white/5 hover:border-emerald-500/10 transition-all flex justify-between items-center">
+                <div>
+                  <p class="text-[10px] text-gray-500">SAVINGS ACCOUNT</p>
+                  <p class="text-base font-bold text-white mt-1">4% Return</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-[10px] text-gray-500">DOUBLES IN</p>
+                  <p class="text-sm font-extrabold text-gray-400 mt-1">~18 Years</p>
+                </div>
+              </div>
+
+              <div class="p-4 bg-neutral-900/40 rounded-xl border border-white/5 hover:border-emerald-500/10 transition-all flex justify-between items-center">
+                <div>
+                  <p class="text-[10px] text-gray-500">CONSERVATIVE DEBT</p>
+                  <p class="text-base font-bold text-white mt-1">8% Return</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-[10px] text-gray-500">DOUBLES IN</p>
+                  <p class="text-sm font-extrabold text-emerald-400/80 mt-1">~9 Years</p>
+                </div>
+              </div>
+
+              <div class="p-4 bg-emerald-950/20 rounded-xl border border-emerald-500/10 hover:border-emerald-500/30 transition-all flex justify-between items-center">
+                <div>
+                  <p class="text-[10px] text-emerald-400 font-semibold">HISTORIC EQUITY SIP</p>
+                  <p class="text-base font-bold text-white mt-1">15% Return</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-[10px] text-emerald-400 font-semibold">DOUBLES IN</p>
+                  <p class="text-base font-black text-emerald-400 mt-1">~4.8 Years</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 7. High-Converting Lead Gen & Connect Section -->
+      <section id="contact" class="py-24 px-4 max-w-6xl mx-auto scroll-mt-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          <!-- Left Context Card (5 cols) -->
+          <div class="lg:col-span-5 flex flex-col justify-start" data-aos="fade-right">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="h-[1px] w-8 bg-emerald-500"></span>
+              <span class="font-mono text-xs uppercase tracking-wider text-emerald-400 font-bold">Connect Today</span>
+            </div>
+            
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+              Ready to build your corpus?<br />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">
+                Let's connect.
+              </span>
+            </h2>
+
+            <p class="text-gray-400 text-base leading-relaxed mb-8 font-light">
+              Submit your ideal investment profile details, and my interactive system will assemble a structured WhatsApp proposal request instantly. Let’s chart out a strategic wealth creation path.
+            </p>
+
+            <!-- Direct Contact Info Card -->
+            <div class="bg-neutral-950/60 border border-white/5 rounded-2xl p-6 font-mono space-y-4">
+              
+              <div class="flex items-center gap-4 text-sm text-gray-300">
+                <div class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <a href="mailto:kusumbahetiw@gmail.com" class="hover:text-emerald-400 transition-colors">kusumbahetiw@gmail.com</a>
+              </div>
+
+              <div class="flex items-center gap-4 text-sm text-gray-300">
+                <div class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <span>ARN-362700 (AMFI Licensed)</span>
+              </div>
+
+              <div class="flex items-center gap-4 text-sm text-gray-300">
+                <div class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <span>Serving Nationwide / Digital Process</span>
+              </div>
+
+            </div>
+
+            <!-- Email button explicitly as requested -->
+            <a href="mailto:kusumbahetiw@gmail.com" class="mt-8 px-6 py-4 rounded-full bg-emerald-500/10 hover:bg-emerald-500 text-emerald-400 hover:text-black font-bold text-sm tracking-wide uppercase border border-emerald-500/20 hover:border-emerald-500 transition-all duration-300 text-center flex items-center justify-center gap-2">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Email Me Directly
+            </a>
+
+          </div>
+
+          <!-- Right Form Card (7 cols) -->
+          <div class="lg:col-span-7 bg-[#0b0b0b] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl relative" data-aos="fade-left" data-aos-delay="250">
+            <h3 class="font-display font-semibold text-xl text-white mb-6 flex items-center justify-between border-b border-white/5 pb-4">
+              <span>Interactive Lead Form</span>
+              <span class="font-mono text-xs text-gray-500">AUTO-BUILDER</span>
+            </h3>
+
+            <form id="lead-form" onsubmit="handleLeadSubmit(event)" class="space-y-6">
+              
+              <!-- Row 1: Name & Phone -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-2">Your Name</label>
+                  <input type="text" id="lead-name" placeholder="John Doe" required class="w-full bg-neutral-950 border border-white/10 hover:border-emerald-500/20 focus:border-emerald-500 focus:outline-none rounded-xl px-4 py-3.5 text-sm font-sans text-white transition-all" />
+                </div>
+                <div>
+                  <label class="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-2">WhatsApp Number</label>
+                  <input type="tel" id="lead-phone" placeholder="+91 XXXXX XXXXX" required class="w-full bg-neutral-950 border border-white/10 hover:border-emerald-500/20 focus:border-emerald-500 focus:outline-none rounded-xl px-4 py-3.5 text-sm font-sans text-white transition-all" />
+                </div>
+              </div>
+
+              <!-- Row 2: Selected SIP parameters (prefilled automatically!) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-2">Desired Monthly SIP (₹)</label>
+                  <input type="number" id="lead-sip" min="1000" placeholder="10000" required class="w-full bg-neutral-950 border border-white/10 hover:border-emerald-500/20 focus:border-emerald-500 focus:outline-none rounded-xl px-4 py-3.5 text-sm font-mono text-emerald-400 transition-all" />
+                  <p class="text-[9px] font-mono text-gray-500 mt-1">Synced with calculator above</p>
+                </div>
+                <div>
+                  <label class="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-2">Time Horizon (Years)</label>
+                  <input type="number" id="lead-period" min="1" placeholder="15" class="w-full bg-neutral-950 border border-white/10 hover:border-emerald-500/20 focus:border-emerald-500 focus:outline-none rounded-xl px-4 py-3.5 text-sm font-mono text-white transition-all" />
+                </div>
+              </div>
+
+              <!-- Row 3: Investment Goal drop-down -->
+              <div>
+                <label class="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-2">Core Financial Goal</label>
+                <select id="lead-goal" class="w-full bg-neutral-950 border border-white/10 hover:border-emerald-500/20 focus:border-emerald-500 focus:outline-none rounded-xl px-4 py-3.5 text-sm font-sans text-white transition-all">
+                  <option value="Long Term Wealth Compounding">Long Term Wealth Compounding</option>
+                  <option value="Early Retirement (FIRE)">Early Retirement (FIRE)</option>
+                  <option value="Kids Higher Education / Marriage">Kids' Higher Education / Marriage</option>
+                  <option value="Real Estate Downpayment">Real Estate / Housing Corpus</option>
+                  <option value="Tax Saving Strategy">Tax Saving (ELSS) & Optimisation</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+
+              <!-- Submit to WhatsApp Button -->
+              <div class="pt-2">
+                <button type="submit" class="w-full py-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-black font-extrabold text-xs tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_4px_15px_rgba(16,185,129,0.2)]">
+                  <!-- Custom SVG WhatsApp Icon -->
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.705 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                  <span>Build WhatsApp Request</span>
+                </button>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer Segment -->
+    <footer class="relative z-10 border-t border-white/[0.05] bg-black pt-16 pb-8 px-4">
+      <div class="max-w-6xl mx-auto flex flex-col items-center">
+        
+        <!-- Socials Row -->
+        <div class="flex items-center gap-6 mb-8 flex-wrap justify-center">
+          
+          <a href="https://x.com/InvestorKb__" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-gray-500 hover:text-emerald-400 transition-colors">
+            <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+            <span>@InvestorKb__</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/kusum-baheti" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-gray-500 hover:text-emerald-400 transition-colors">
+            <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+              <path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43c-1.14 0-2.06-.92-2.06-2.06 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.14-.92 2.06-2.06 2.06zm15.11 13.02h-3.56v-5.6c0-1.34-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.7H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z" />
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+
+          <a href="https://whatsapp.com/channel/0029VbB8iEt7IUYL5ddjK216" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-gray-500 hover:text-emerald-400 transition-colors">
+            <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.13 0-5.673 2.544-5.673 5.674 0 1.48.57 2.825 1.5 3.832L7.04 18.32l2.766-.726a5.61 5.61 0 002.225.464c3.13 0 5.674-2.544 5.674-5.674 0-3.13-2.544-5.674-5.674-5.674m0-1.172c3.78 0 6.846 3.066 6.846 6.846a6.83 6.83 0 01-1.743 4.545l.91 3.327-3.414-.897a6.808 6.808 0 01-2.599.516c-3.78 0-6.846-3.066-6.846-6.846 0-3.78 3.066-6.846 6.846-6.846z" />
+            </svg>
+            <span>WhatsApp Channel</span>
+          </a>
+
+          <a href="https://www.youtube.com/@KusumBahetii" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs font-mono text-gray-500 hover:text-emerald-400 transition-colors">
+            <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+              <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            <span>YouTube</span>
+          </a>
+
+        </div>
+
+        <!-- Compliance Disclaimer Notice -->
+        <p class="text-[10px] text-gray-600 max-w-3xl text-center leading-relaxed mb-12 uppercase tracking-wide font-mono">
+          Disclaimer: Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing. AMFI Registered Mutual Fund Distributor (ARN-362700). Past performance is not an indicator of future returns.
+        </p>
+
+        <!-- Developer Attribution Credit strictly as requested -->
+        <div class="text-xs text-gray-500 font-mono">
+          Built by <a href="https://terrestrialyt.com/" target="_blank" rel="noopener noreferrer" class="text-emerald-500/80 hover:text-emerald-400 border-b border-emerald-500/10 hover:border-emerald-500/40 pb-0.5 transition-all">TerrestrialYT</a>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- Fixed 'Back to Top' Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-neutral-900 border border-white/10 text-emerald-400 hover:text-black hover:bg-emerald-400 transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.6)] hover:shadow-[0_8px_24px_rgba(16,185,129,0.3)] hover:-translate-y-1 translate-y-12 opacity-0 pointer-events-none cursor-pointer" aria-label="Back to top">
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7" />
+      </svg>
+    </button>
+
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom Application Logic -->
+    <script>
+      // Force page to always load from the top of the hero section on page refresh
+      if (history.scrollRestoration) {
+        history.scrollRestoration = 'manual';
+      }
+      window.scrollTo(0, 0);
+      window.addEventListener('beforeunload', () => {
+        window.scrollTo(0, 0);
+      });
+
+      // Initialize AOS Scroll Reveal
+      AOS.init({
+        duration: 850,
+        once: true,
+        easing: 'ease-out-quad'
+      });
+
+      // Interactive copy function for her ARN registry code
+      function copyARN() {
+        const arnText = "ARN-362700";
+        navigator.clipboard.writeText(arnText).then(() => {
+          const toast = document.getElementById("copy-toast");
+          toast.classList.remove("opacity-0");
+          toast.classList.add("opacity-100");
+          
+          setTimeout(() => {
+            toast.classList.remove("opacity-100");
+            toast.classList.add("opacity-0");
+          }, 2000);
+        }).catch(err => {
+          console.error("Failed to copy text: ", err);
+        });
+      }
+
+      // Floating header transition logic on page scroll and scroll depth progress
+      window.addEventListener("scroll", () => {
+        const headerContainer = document.querySelector("header div");
+        if (window.scrollY > 30) {
+          headerContainer.classList.add("bg-black/90", "py-2.5");
+          headerContainer.classList.remove("bg-black/50", "py-3");
+        } else {
+          headerContainer.classList.add("bg-black/50", "py-3");
+          headerContainer.classList.remove("bg-black/90", "py-2.5");
+        }
+
+        // Calculate current scroll progress percentage
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progressPercentage = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        const progressElement = document.getElementById("scroll-progress");
+        if (progressElement) {
+          progressElement.style.width = `${progressPercentage}%`;
+        }
+
+        // Back to Top button visibility toggle (past hero section)
+        const backToTopBtn = document.getElementById("back-to-top");
+        if (backToTopBtn) {
+          if (window.scrollY > 400) {
+            backToTopBtn.classList.remove("opacity-0", "translate-y-12", "pointer-events-none");
+            backToTopBtn.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+          } else {
+            backToTopBtn.classList.add("opacity-0", "translate-y-12", "pointer-events-none");
+            backToTopBtn.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+          }
+        }
+      });
+
+      // Back to top scroll handler
+      const backToTopBtn = document.getElementById("back-to-top");
+      if (backToTopBtn) {
+        backToTopBtn.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        });
+      }
+
+      // Mobile Hamburguer menu activation
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const hamburgerIcon = document.getElementById("hamburger-icon");
+      const closeIcon = document.getElementById("close-icon");
+      const menuSvg = document.getElementById("menu-svg");
+
+      function toggleMobileMenu() {
+        if (!mobileMenu || !hamburgerIcon || !closeIcon) return;
+        const isOpen = !mobileMenu.classList.contains("pointer-events-none");
+        if (isOpen) {
+          // Close animation
+          mobileMenu.classList.add("opacity-0", "scale-95", "-translate-y-2", "pointer-events-none");
+          mobileMenu.classList.remove("opacity-100", "scale-100", "translate-y-0", "pointer-events-auto");
+          hamburgerIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
+          if (menuSvg) menuSvg.classList.remove("rotate-90");
+        } else {
+          // Open animation
+          mobileMenu.classList.remove("opacity-0", "scale-95", "-translate-y-2", "pointer-events-none");
+          mobileMenu.classList.add("opacity-100", "scale-100", "translate-y-0", "pointer-events-auto");
+          hamburgerIcon.classList.add("hidden");
+          closeIcon.classList.remove("hidden");
+          if (menuSvg) menuSvg.classList.add("rotate-90");
+        }
+      }
+
+      function closeMobileMenu() {
+        if (!mobileMenu || !hamburgerIcon || !closeIcon) return;
+        mobileMenu.classList.add("opacity-0", "scale-95", "-translate-y-2", "pointer-events-none");
+        mobileMenu.classList.remove("opacity-100", "scale-100", "translate-y-0", "pointer-events-auto");
+        hamburgerIcon.classList.remove("hidden");
+        closeIcon.classList.add("hidden");
+        if (menuSvg) menuSvg.classList.remove("rotate-90");
+      }
+
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener("click", toggleMobileMenu);
+      }
+
+      // Close mobile menu on clicking any link
+      const navLinks = document.querySelectorAll(".mobile-nav-link");
+      navLinks.forEach(link => {
+        link.addEventListener("click", closeMobileMenu);
+      });
+
+      // Interactive Real-Time SIP Compound Interest Calculator Engine
+      const sipInput = document.getElementById("monthly-sip");
+      const rateInput = document.getElementById("return-rate");
+      const periodInput = document.getElementById("time-period");
+
+      const sipBadge = document.getElementById("sip-value-badge");
+      const rateBadge = document.getElementById("rate-value-badge");
+      const periodBadge = document.getElementById("period-value-badge");
+
+      // Output Elements
+      const outputInvested = document.getElementById("sum-invested");
+      const outputGains = document.getElementById("sum-gains");
+      const outputTotal = document.getElementById("sum-total");
+      const multiplierBadge = document.getElementById("multiplier-badge");
+      const gaugeCircle = document.getElementById("gauge-circle");
+
+      // Synchronize slider presets from Rule list
+      function setHorizonPreset(years) {
+        periodInput.value = years;
+        updateSipCalculator();
+      }
+
+      // Main calculation executor
+      function updateSipCalculator() {
+        const monthlySip = parseFloat(sipInput.value);
+        const annualRate = parseFloat(rateInput.value);
+        const years = parseInt(periodInput.value);
+
+        // Update visual labels with local Indian currency grouping rules
+        sipBadge.textContent = monthlySip.toLocaleString('en-IN');
+        rateBadge.textContent = annualRate;
+        periodBadge.textContent = years;
+
+        // Auto pre-fill input attributes of the Lead Form!
+        const leadSipInput = document.getElementById("lead-sip");
+        const leadPeriodInput = document.getElementById("lead-period");
+        if (leadSipInput) leadSipInput.value = monthlySip;
+        if (leadPeriodInput) leadPeriodInput.value = years;
+
+        // SIP Compounding math equation implementation
+        const monthlyRate = (annualRate / 12) / 100;
+        const totalMonths = years * 12;
+
+        const totalInvested = monthlySip * totalMonths;
+        
+        // Compound interest equation: M = P * [ ( (1 + r)^n - 1 ) / r ] * (1 + r)
+        let futureValue = 0;
+        if (monthlyRate > 0) {
+          futureValue = monthlySip * ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate) * (1 + monthlyRate);
+        } else {
+          futureValue = totalInvested;
+        }
+
+        const gains = Math.max(0, futureValue - totalInvested);
+        const multiplier = (futureValue / totalInvested).toFixed(1);
+
+        // Format currency strings beautifully
+        outputInvested.textContent = "₹" + Math.round(totalInvested).toLocaleString('en-IN');
+        outputGains.textContent = "+₹" + Math.round(gains).toLocaleString('en-IN');
+        outputTotal.textContent = "₹" + Math.round(futureValue).toLocaleString('en-IN');
+        multiplierBadge.textContent = multiplier + "x";
+
+        // SVG circular progress gauge offset calculus
+        // Circle circumference = 2 * PI * r = 2 * 3.1415 * 60 = 377
+        const maxOffset = 377;
+        const gainRatio = gains / futureValue;
+        const offset = maxOffset - (gainRatio * maxOffset);
+        gaugeCircle.style.strokeDashoffset = offset;
+      }
+
+      // Setup Calculator listener triggers
+      sipInput.addEventListener("input", updateSipCalculator);
+      rateInput.addEventListener("input", updateSipCalculator);
+      periodInput.addEventListener("input", updateSipCalculator);
+
+      // Scroll lock & Autofill transfer helper
+      function lockAndConnect() {
+        updateSipCalculator();
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+
+      // Generate pre-filled WhatsApp lead workflow
+      function handleLeadSubmit(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById("lead-name").value;
+        const phone = document.getElementById("lead-phone").value;
+        const sipAmount = document.getElementById("lead-sip").value;
+        const period = document.getElementById("lead-period").value;
+        const goal = document.getElementById("lead-goal").value;
+
+        // Custom template compiled text for the prefilled request
+        const textPayload = `Hi Kusum, My name is ${name}. I am looking to initiate a SIP portfolio on your recommendation.
+
+Details of my preference:
+- Desired Monthly Allocation: ₹${parseInt(sipAmount).toLocaleString('en-IN')}
+- Planned Time Horizon: ${period} Years
+- Primary Goal: ${goal}
+- My WhatsApp Contact: ${phone}
+
+Let's coordinate on structural setups and plan allocation steps!`;
+
+        const encodedText = encodeURIComponent(textPayload);
+        
+        // Build the dynamic target link redirection to her WhatsApp registry channel/chat
+        // We link directly to her verified email and support number proxy link
+        const whatsappUrl = `https://wa.me/916376276349?text=${encodedText}`;
+        window.open(whatsappUrl, '_blank');
+      }
+
+      // Perform initial render cycle
+      updateSipCalculator();
+    </script>
+  </body>
+</html>

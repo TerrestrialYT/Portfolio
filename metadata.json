@@ -1,0 +1,6 @@
+{
+  "name": "Kusum Baheti Portfolio",
+  "description": "Premium single-page personal portfolio for Kusum Baheti, a certified Mutual Fund and SIP Distributor, featuring high-end fintech aesthetics, interactive wealth calculators, and robust contact modules.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
